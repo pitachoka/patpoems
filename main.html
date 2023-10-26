@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pat's Poems</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        h1 {
+            color: #075E54;
+        }
+        #chat-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            text-align: left;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .message {
+            background-color: #dcf8c6;
+            border: 1px solid #c5e5b9;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            animation: fadeIn 1s;
+        }
+        .user {
+            font-weight: bold;
+            color: #128C7E;
+        }
+        .poem {
+            font-size: 20px;
+        }
+        button {
+            background-color: #25d366;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #075e54;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <script>
+        const poems = [
+            "Pat was a kind soul, always there to lend a hand.",
+            "In the garden, Pat's green thumb made the flowers stand tall.",
+            "Pat's smile was like sunshine, brightening up each day for all.",
+            "With a heart full of love, Pat showed us the way.",
+            "Pat's laughter echoed like a cheerful song.",
+            "In Pat's presence, we always felt strong.",
+            "Through the good and the bad, Pat was a friend.",
+            "With compassion and care, they would always extend.",
+            "Pat's wisdom was a guiding light, in the darkest of times.",
+            "In Pat's company, we found solace in rhymes.",
+            "With a heart so pure, Pat's love knew no bounds.",
+            "In the garden of life, Pat's presence truly astounds."
+        ];
+
+        function showRandomPoem() {
+            const chatBox = document.getElementById("chat-box");
+            const messageElement = document.createElement("div");
+            messageElement.classList.add("message");
+
+            const userElement = document.createElement("div");
+            userElement.classList.add("user");
+            userElement.textContent = "Pat:";
+            messageElement.appendChild(userElement);
+
+            const poemElement = document.createElement("div");
+            poemElement.classList.add("poem");
+            const randomIndex = Math.floor(Math.random() * poems.length);
+            poemElement.textContent = poems[randomIndex];
+            messageElement.appendChild(poemElement);
+
+            chatBox.appendChild(messageElement);
+
+            // Scroll to the latest message
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+    </script>
+</head>
+<body>
+    <button onclick="showRandomPoem()">Send Poem</button>
+    <h1>Pat's Poems</h1>
+    <div id="chat-box"></div>
+</body>
+</html>
